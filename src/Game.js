@@ -118,7 +118,6 @@ const dropDisc = (col) => {
         if (checkForWin(newBoard, row, col)) {
           setWinner(players[currentPlayer]);
           setBoard(newBoard);
-          // Update server with the win result
           const winType = players[currentPlayer] === 'red' ? 'ai_wins' : 'player_wins';
           incrementWinCount(winType);
           return;
@@ -152,7 +151,7 @@ return (
     </div>
     {winner && (
       <div className="winner-message">
-        {`${winner === 'red' ? 'AI' : 'Player'} Wins!`}
+        <span className="winner-message">{`${winner === 'red' ? 'AI' : 'Player'} Wins!`}</span>
         <button className="restart-button" onClick={restartGame}>Restart</button>
       </div>
     )}
